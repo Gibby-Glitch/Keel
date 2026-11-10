@@ -1,0 +1,10 @@
+{
+  "name": "Keel — habit & savings journal",
+  "short_name": "Keel",
+  "description": "Break costly habits — drinking and impulse spending — and keep the difference.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ecf0ed",
+  "theme_color": "#2b6765",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

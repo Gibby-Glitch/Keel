@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+/*
+  Keel — palette: lake at first light.
+  Cool fog ground, deep slate ink, a tide-teal accent for action,
+  and brass reserved for money only.
+*/
+:root {
+  --fog: #ecf0ed;
+  --surface: #f8faf8;
+  --ink: #1c2b2f;
+  --muted: #56676a;
+  --line: #d2dcd7;
+  --tide: #2b6765;
+  --tide-ink: #ffffff;
+  --tide-soft: #d6e7e3;
+  --tide-deep: #1f4e4c;
+  --brass: #8a6618;
+  --brass-soft: #f1e6cc;
+  --ember: #a2513b;
+  --ember-soft: #f4e1da;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fog: #0f191c;
+    --surface: #152328;
+    --ink: #e2ebe7;
+    --muted: #93a6a3;
+    --line: #263a3e;
+    --tide: #6db0a8;
+    --tide-ink: #0c1a1b;
+    --tide-soft: #1b3a39;
+    --tide-deep: #9fd0c8;
+    --brass: #dcb35f;
+    --brass-soft: #3a3020;
+    --ember: #e08f78;
+    --ember-soft: #3b2420;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --fog: #0f191c;
+  --surface: #152328;
+  --ink: #e2ebe7;
+  --muted: #93a6a3;
+  --line: #263a3e;
+  --tide: #6db0a8;
+  --tide-ink: #0c1a1b;
+  --tide-soft: #1b3a39;
+  --tide-deep: #9fd0c8;
+  --brass: #dcb35f;
+  --brass-soft: #3a3020;
+  --ember: #e08f78;
+  --ember-soft: #3b2420;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-fog: var(--fog);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-tide: var(--tide);
+  --color-tide-ink: var(--tide-ink);
+  --color-tide-soft: var(--tide-soft);
+  --color-tide-deep: var(--tide-deep);
+  --color-brass: var(--brass);
+  --color-brass-soft: var(--brass-soft);
+  --color-ember: var(--ember);
+  --color-ember-soft: var(--ember-soft);
+  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html,
+body {
+  background: var(--fog);
+  color: var(--ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 0;
+}
+
+.num {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--tide);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: var(--tide-soft);
+}
+
+/* The tide: a slow swell on the savings card. The one ambient motion in the app. */
+@keyframes swell {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-25%);
+  }
+}
+.tide-wave {
+  animation: swell 14s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(0.72);
+  }
+  45%,
+  55% {
+    transform: scale(1);
+  }
+}
+.breathe {
+  animation: breathe 10s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tide-wave,
+  .breathe {
+    animation: none;
+  }
+}
+
+input[type="range"] {
+  accent-color: var(--tide);
+}
